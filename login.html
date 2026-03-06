@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Issues Tracker</title>
+    <link rel="shortcut icon" href="./assets/github-logo.png" type="image/x-icon">
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- tailwind + daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font integration -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.html">
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div class="bg-gray-100 flex items-center justify-center h-screen">
+        <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+            <div class="text-center mb-6">
+                <div class="w-20 mx-auto mb-6">
+                    <img src="./assets/github-logo.png" alt="">
+                </div>
+                <div class="">
+                    <h1 class="text-2xl font-semibold">GitHub Issues Tracker</h1>
+                    <p class="text-gray-500">Sign in to manage your issues</p>
+                </div>
+            </div>
+
+            <form id="loginForm" class="space-y-2">
+                <h2 class="font-medium">Username</h2>
+                <input id="username" type="text" placeholder="Enter Username" class="input input-bordered w-full"/>
+                <h2 class="font-medium">Password</h2>
+                <input id="password" type="password" placeholder="Enter Password" class="input input-bordered w-full"/>
+                <button class="btn btn-primary w-full rounded-lg my-6">Sign In</button>
+            </form>
+
+            <div class="flex items-center">
+                <div class="flex-1 border-t border-gray-300"></div>
+                <span class="px-3 text-gray-500 text-sm">OR</span>
+                <div class="flex-1 border-t border-gray-300"></div>
+            </div>
+
+            <div class="text-sm text-gray-500 mt-4 text-center">
+                <p class="text-center mb-2">Demo Credentials:</p>
+                <div class="bg-gray-100 py-6">
+                    <p><span class="font-semibold text-sm">Username:</span> admin</p>
+                    <p><span class="font-semibold text-sm">Password:</span> admin123</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+</body>
+</html>
