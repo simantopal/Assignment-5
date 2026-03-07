@@ -25,14 +25,33 @@ function displayIssues(issues) {
     div.style.borderTop = issue.status.toLowerCase() === "open" ? "5px solid green" : "5px solid purple";
 
     div.innerHTML = `
-      <h2 class="font-bold text-lg mb-1">${issue.title}</h2>
-      <p class="mb-1">${issue.description}</p>
-      <p>Status: ${issue.status}</p>
-      <p>Category: ${issue.category}</p>
-      <p>Author: ${issue.author}</p>
-      <p>Priority: ${issue.priority}</p>
-      <p>Label: ${issue.label}</p>
-      <p class="text-gray-500 text-sm">Created: ${issue.createdAt}</p>
+        <div class="flex justify-between items-start mb-3">
+            <div class="flex items-center gap-2">
+                <img src="${issue.status.toLowerCase() === "open" ? "./assets/Open-status.png" : "./assets/closed-status.png"}" class="w-5 h-5"
+                alt="status"/>
+            </div>
+
+            <span class="text-xs px-3 py-1 rounded-full ${
+                issue.priority === "high"
+                ? "bg-red-100 text-red-600"
+                : issue.priority === "medium"
+                ? "bg-yellow-100 text-yellow-600"
+                : "bg-gray-100 text-gray-600"
+            }">
+                ${issue.priority}
+            </span>
+        </div>
+
+        <div class="flex flex-wrap gap-2 text-sm mb-3">
+            <h2 class="font-semibold text-lg">${issue.title}</h2>
+            <p class="text-gray-600 mb-3">${issue.description}</p>
+            <span class="px-2 py-1 rounded">${issue.labels}</span>
+        </div>
+
+        <div class="text-sm text-gray-500 py-4 px-4 border-t">
+            <p><span>#${issue.id} ${issue.author}</span></p>
+            <p><span>${new Date(issue.createdAt).toLocaleDateString()}</span></p>
+        </div>
     `;
     container.append(div);
   });
