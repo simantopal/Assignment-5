@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
 </head>
-<body class="bg-gray-100">
+<body>
+    <!-- Navbar -->
     <div class="navbar bg-base-100 shadow-sm mb-14 px-5 md:px-20">
         <div class="flex flex-1 gap-1">
             <img class="w-9" src="./assets/github-logo.png" alt="">
@@ -30,6 +31,20 @@
             <button class="btn btn-primary font-semibold"><i class="fa-solid fa-plus"></i>New Issue</button>
         </div>       
     </div>
+
+    <section class="max-w-7xl mx-auto mt-8 px-4">
+        <div class="flex gap-4 mb-6">
+            <button onclick="filterIssues('all')" class="btn">All</button>
+            <button onclick="filterIssues('open')" class="btn btn-success">Open</button>
+            <button onclick="filterIssues('closed')" class="btn btn-secondary">Closed</button>
+        </div>
+    </section>
+
+    <section id="tab-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-8/12 mx-auto">
+        
+    </section>
+
+    <script src="script/index.js"></script>
 
 </body>
 </html>
