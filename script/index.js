@@ -7,6 +7,7 @@ async function loadIssues(){
 
 function displayIssues(issues){
     container.innerHTML = "";
+    document.getElementById("issueCount").innerText = issues.length
     issues.forEach(issue => {
         const div = document.createElement("div");
         div.className = "card bg-white p-4 shadow";
