@@ -4,6 +4,32 @@ const api = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
 let allIssues = []; // store fetched issues once
 
+// Modal elements
+// ----------------------
+const modal = document.getElementById("issue-modal");
+const modalClose = document.getElementById("modal-close");
+
+// Open modal with issue data
+function openModal(issue) {
+    document.getElementById("modal-title").innerText = issue.title;
+    document.getElementById("modal-description").innerText = issue.description;
+    document.getElementById("modal-assignee").innerText = `Assignee: ${issue.assignee}`;
+    document.getElementById("modal-date").innerText = `${new Date(issue.createdAt).toLocaleDateString()}`;
+    
+    const priorityEl = document.getElementById("modal-priority");
+    priorityEl.innerText = issue.priority;
+    priorityEl.className = "px-2 py-2 rounded-full text-white " +
+        (issue.priority === "high" ? "bg-red-500" : issue.priority === "medium" ? "bg-yellow-500" : "bg-gray-500");
+
+    document.getElementById("modal-status").innerText = "" + issue.labels;
+
+    modal.classList.remove("hidden"); // show modal
+}
+
+// Close modal events
+modalClose.addEventListener("click", () => modal.classList.add("hidden"));
+modal.addEventListener("click", e => { if(e.target === modal) modal.classList.add("hidden"); });
+
 // Initial fetch
 async function loadIssues() {
   const res = await fetch(api);
@@ -12,6 +38,7 @@ async function loadIssues() {
   displayIssues(allIssues);
   setActiveButton("all"); // by default "All" active
 }
+
 
 // Display issues
 function displayIssues(issues) {
@@ -53,6 +80,10 @@ function displayIssues(issues) {
             <p><span>${new Date(issue.createdAt).toLocaleDateString()}</span></p>
         </div>
     `;
+
+      // Add modal click
+    div.addEventListener("click", () => openModal(issue));      
+
     container.append(div);
   });
 }
