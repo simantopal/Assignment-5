@@ -98,7 +98,7 @@ function displayIssues(issues) {
     div.innerHTML = `
         <div class="flex justify-between items-start mb-3">
             <div class="flex items-center gap-2">
-                <img src="${issue.status.toLowerCase() === "open" ? "./assets/Open-status.png" : "./assets/closed-status.png"}" class="w-5 h-5"
+                <img src="${issue.status.toLowerCase() === "open" ? "./assets/Open-status.png" : "./assets/Closed-status.png"}" class="w-5 h-5"
                 alt="status"/>
             </div>
 
