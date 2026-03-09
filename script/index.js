@@ -2,15 +2,13 @@ const container = document.getElementById("tab-container");
 const issueCount = document.getElementById("issueCount");
 const api = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
 
-let allIssues = []; // store fetched issues once
+let allIssues = [];
 
-// Modal elements
-// ----------------------
 const modal = document.getElementById("issue-modal");
 const modalClose = document.getElementById("modal-close");
 
 
-// Open modal with issue data
+
 async function openModal(id){
 
   const res = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${id}`);
@@ -27,8 +25,6 @@ async function openModal(id){
   const priorityEl = document.getElementById("modal-priority");
   priorityEl.innerText = issue.priority.toUpperCase();
 
-  
-
   priorityEl.className =
     "px-2 py-1 rounded-full text-white text-xs " +
     (issue.priority === "high"
@@ -38,7 +34,7 @@ async function openModal(id){
       : "bg-gray-500");
 
 
-    // Labels handle
+
   const labelsContainer = document.getElementById("modal-labels");
   labelsContainer.innerHTML = "";
 
@@ -53,29 +49,28 @@ async function openModal(id){
   });
 
       const status = document.getElementById("modal-status");
-      status.textContent = "Opened"; // or Closed
-      status.classList.add("bg-green-600"); // use bg-red-500 for Closed
+      status.textContent = "Opened";
+      status.classList.add("bg-green-600");
 
   modal.classList.remove("hidden");
 }
 
-// Close modal events
+
 modalClose.addEventListener("click", () => modal.classList.add("hidden"));
 modal.addEventListener("click", e => {
-  if(e.target === modal) modal.classList.add("hidden"); // click outside modal
+  if(e.target === modal) modal.classList.add("hidden"); 
 });
 
-// Initial fetch
+
 async function loadIssues() {
   const res = await fetch(api);
   const data = await res.json();
   allIssues = data.data;
   displayIssues(allIssues);
-  setActiveButton("all"); // by default "All" active
+  setActiveButton("all");
 }
 
 
-// Display issues
 function displayIssues(issues) {
   container.innerHTML = "";
   issueCount.innerText = issues.length;
@@ -137,13 +132,13 @@ function displayIssues(issues) {
   });
 }
 
-// Active button toggling
+
 function setActiveButton(status) {
   const buttons = ["allBtn", "openBtn", "closedBtn"];
   buttons.forEach(id => {
     const btn = document.getElementById(id);
-    btn.classList.remove("bg-[#4A00FF]", "text-white"); // primary color classes
-    btn.classList.add("bg-gray-200", "text-gray-700"); // inactive classes
+    btn.classList.remove("bg-[#4A00FF]", "text-white");
+    btn.classList.add("bg-gray-200", "text-gray-700");
   });
 
   if(status === "all") {
@@ -156,7 +151,7 @@ function setActiveButton(status) {
   }
 }
 
-// Filter issues using cached data
+
 function filterIssues(status) {
   setActiveButton(status);
 
@@ -167,11 +162,10 @@ function filterIssues(status) {
   displayIssues(filtered);
 }
 
-// Add event listeners
+
 ["all", "open", "closed"].forEach(status => {
   document.getElementById(status + "Btn").addEventListener("click", () => filterIssues(status));
 });
 
-// Initial load
-loadIssues();
 
+loadIssues();
