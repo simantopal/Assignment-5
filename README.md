@@ -1,24 +1,73 @@
-    - 1️⃣ What is the difference between var, let, and const?
+# 🐙 GitHub Issues Tracker
 
-    Ans: In JavaScript, var, let, const are used to declare variables.
-        var function can be redeclared and updated.
-        let can be updated but cannot be redeclared in the same scope.
-        const cannot be redeclared and updated after declaration.
+A **simple and modern web app** to track and manage GitHub-like issues. Built using **HTML, CSS, Tailwind CSS, DaisyUI, and Vanilla JavaScript**.  
+It supports viewing all, open, and closed issues, filtering by status, and a modal for detailed issue information.
 
+---
 
-    - 2️⃣ What is the spread operator (...)?
-    Ans: The spread operator (...) is used to expand the elements of an array or object. It allows you to easily merge or pass values.
+## Live Demo:
+https://github-issues-tracker-assignment5.netlify.app/
 
+---
 
-    - 3️⃣ What is the difference between map(), filter(), and forEach()?
-    Ans: map() creates a new array by transforming each element.
-        filter() creates a new array containing elements that match a condition.
-        forEach() runs a function for each element but does not return a new array.
+## 💻 Features
 
+- Login page with demo credentials (`admin` / `admin123`)  
+- Dashboard showing all issues with **status, priority, and labels**  
+- Filter issues by **All / Open / Closed**  
+- Detailed **issue modal** with description, assignee, priority, and labels  
+- Fully responsive layout using **Tailwind CSS**  
 
-    - 4️⃣ What is an arrow function?
-    Ans: Arrow function is a shorter syntax to write functions in JavaScript using the => symbol.
+---
 
+## 🚀 Run Locally
 
-    - 5️⃣ What are template literals?
-    Ans: Template literals allow us to create strings using backticks (` `) and insert variables using ${}.
+```bash
+# Clone the repository
+git clone <your-repo-link>
+
+# Navigate to project folder
+cd github-issues-tracker
+
+# Open in browser
+open index.html
+
+Demo Credentials for Login:
+Username: admin
+Password: admin123
+
+🖼 Screenshots
+Login Page
+
+Dashboard / All Issues
+
+Open Issues Filter
+
+Issue Modal
+
+⚡ Tech Stack
+Frontend: HTML, CSS, JavaScript
+UI Framework: Tailwind CSS + DaisyUI
+Icons: Font Awesome
+Fonts: Geist
+📝 Project Structure
+github-issues-tracker/
+│
+├─ assets/                  # Images & icons
+├─ script/
+│   ├─ index.js             # Dashboard functionality
+│   └─ login.js             # Login form handling
+├─ style.css                # Custom styles
+├─ index.html               # Main dashboard
+└─ login.html               # Login page
+📂 Future Improvements
+Add authentication backend instead of localStorage
+Allow creating, editing, and deleting issues
+Add comments & activity log for each issue
+Connect to a real GitHub API for live issues
+
+```
+
+<h1>ScreenShot</h1>
+<img width="1904" height="914" alt="image" src="https://github.com/user-attachments/assets/167ec426-9801-41f5-95f3-e89c8b70dd5d" />
+
